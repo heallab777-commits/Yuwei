@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yu Wei Lai — Senior Music Editor, Taiwan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12181a;
+    --ink-2:#1b2325;
+    --paper:#ede8e0;
+    --paper-dim:#a9a49a;
+    --line:#33403f;
+    --mountain:#7ea083;
+    --ocean:#4d7fa3;
+    --market:#dd9a4f;
+    --lake:#8f7ab0;
+    --canyon:#c0685a;
+    --accent:var(--market);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Noto Sans TC', sans-serif;
+    font-weight:300;
+    line-height:1.75;
+    overflow-x:hidden;
+  }
+  ::selection{ background:var(--accent); color:var(--ink); }
+  h1,h2,h3,.serif{ font-family:'Noto Serif TC', serif; }
+  .mono{ font-family:'IBM Plex Mono', monospace; letter-spacing:0.03em; }
+  a{ color:inherit; }
+  .wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.24em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:26px; height:1px;
+    background:var(--accent);
+    display:inline-block;
+  }
+  section{ padding:96px 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    position:relative;
+    padding:64px 0;
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .hero-bars{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    height:220px;
+    display:flex;
+    align-items:flex-end;
+    gap:3px;
+    opacity:0.5;
+    -webkit-mask-image:linear-gradient(to top, black, transparent);
+            mask-image:linear-gradient(to top, black, transparent);
+    pointer-events:none;
+  }
+  .hero-bars span{
+    flex:1;
+    background:linear-gradient(to top, var(--mountain), var(--ocean));
+    animation:wave 3.2s ease-in-out infinite;
+    transform-origin:bottom;
+  }
+  @keyframes wave{
+    0%,100%{ transform:scaleY(0.25); }
+    50%{ transform:scaleY(1); }
+  }
+  .hero-inner{ position:relative; z-index:2; }
+  .kicker{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--paper-dim);
+    margin-bottom:22px;
+  }
+  .hero h1{
+    font-size:clamp(40px, 7vw, 76px);
+    font-weight:900;
+    line-height:1.05;
+    margin-bottom:20px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--accent);
+  }
+  .hero-role{
+    font-size:19px;
+    color:var(--paper-dim);
+    max-width:560px;
+    margin-bottom:36px;
+  }
+  .hero-role b{ color:var(--paper); font-weight:500; }
+  .scroll-cue{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--paper-dim);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .scroll-cue::after{
+    content:"↓";
+    animation:bob 1.6s ease-in-out infinite;
+  }
+  @keyframes bob{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(5px); }
+  }
+
+  /* ---------- PROFILE ---------- */
+  .profile p{
+    font-size:19px;
+    max-width:680px;
+    color:var(--paper);
+  }
+  .profile p + p{ margin-top:20px; }
+  .profile ul{
+    list-style:none;
+    max-width:680px;
+    margin-top:8px;
+  }
+  .profile ul li{
+    position:relative;
+    padding-left:26px;
+    font-size:18px;
+    color:var(--paper);
+    margin-bottom:16px;
+  }
+  .profile ul li::before{
+    content:"—";
+    position:absolute;
+    left:0;
+    color:var(--accent);
+    font-family:'IBM Plex Mono', monospace;
+  }
+  .profile ul.zh-list li{
+    font-size:15px;
+    color:var(--paper-dim);
+    font-family:'Noto Sans TC', sans-serif;
+  }
+  .profile .zh{
+    margin-top:28px;
+    padding-top:28px;
+    border-top:1px dashed var(--line);
+    font-size:16px;
+    color:var(--paper-dim);
+    max-width:680px;
+  }
+
+  /* ---------- DUAL TRACK ---------- */
+  .tracks{ margin-top:56px; }
+  .track-row{ position:relative; margin-bottom:52px; }
+  .track-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+    display:flex;
+    justify-content:space-between;
+  }
+  .track-label .tag-eng{ color:var(--ocean); }
+  .track-label .tag-mus{ color:var(--market); }
+  .track-line{
+    position:relative;
+    height:2px;
+    background:var(--line);
+    border-radius:2px;
+  }
+  .track-line.eng{ background:linear-gradient(to right, var(--line), var(--ocean)); }
+  .track-line.mus{ background:linear-gradient(to right, var(--line), var(--market)); }
+  .dot{
+    position:absolute;
+    top:50%;
+    width:9px; height:9px;
+    border-radius:50%;
+    transform:translate(-50%,-50%);
+    background:var(--ink);
+    border:2px solid var(--paper-dim);
+  }
+  .dot.eng{ border-color:var(--ocean); }
+  .dot.mus{ border-color:var(--market); }
+  .dot .dot-label{
+    position:absolute;
+    top:16px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:12px;
+    white-space:nowrap;
+    color:var(--paper-dim);
+  }
+  .dot .dot-label.wrap{
+    white-space:normal;
+    width:130px;
+    text-align:center;
+    line-height:1.35;
+  }
+  .converge{
+    text-align:right;
+    margin-top:8px;
+    padding-top:56px;
+  }
+  .converge-node{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 18px;
+    border:1px solid var(--accent);
+    border-radius:999px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    color:var(--accent);
+  }
+
+  /* ---------- FRAMEWORK ---------- */
+  .axis-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:14px;
+    margin:40px 0 48px;
+  }
+  .axis-card{
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:18px 16px;
+    background:var(--ink-2);
+  }
+  .axis-num{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    color:var(--paper-dim);
+    margin-bottom:10px;
+  }
+  .axis-title{ font-size:16px; margin-bottom:6px; }
+  .axis-ex{ font-size:13px; color:var(--paper-dim); }
+
+  .tabs{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:30px; }
+  .tab{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    padding:10px 16px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:transparent;
+    color:var(--paper-dim);
+    cursor:pointer;
+    transition:all .2s ease;
+  }
+  .tab:hover{ border-color:var(--accent); color:var(--paper); }
+  .tab.active{
+    background:var(--accent);
+    border-color:var(--accent);
+    color:var(--ink);
+    font-weight:500;
+  }
+  .recipe-card{
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:34px;
+    background:var(--ink-2);
+    display:none;
+  }
+  .recipe-card.active{ display:block; animation:fadein .35s ease; }
+  @keyframes fadein{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+  .recipe-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:20px;
+  }
+  .recipe-tags span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    padding:5px 10px;
+    border-radius:6px;
+    background:rgba(255,255,255,0.06);
+    color:var(--paper-dim);
+  }
+  .recipe-card h3{ font-size:26px; margin-bottom:16px; }
+  .recipe-card blockquote{
+    border-left:2px solid var(--accent);
+    padding-left:18px;
+    margin-bottom:14px;
+    font-size:16px;
+  }
+  .recipe-card blockquote.zh{ color:var(--paper-dim); font-family:'Noto Sans TC', sans-serif; }
+  .rationale{
+    margin-top:22px;
+    padding-top:22px;
+    border-top:1px dashed var(--line);
+    font-size:14px;
+    color:var(--paper-dim);
+  }
+  .rationale b{ color:var(--paper); font-weight:500; }
+
+  /* ---------- AWARDS ---------- */
+  .award{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    padding:16px 0;
+    border-bottom:1px solid var(--line);
+    font-size:15px;
+  }
+  .award:last-child{ border-bottom:none; }
+  .award .yr{ font-family:'IBM Plex Mono', monospace; color:var(--accent); flex-shrink:0; width:90px; }
+  .award .name{ color:var(--paper-dim); }
+  .award .name b{ color:var(--paper); font-weight:500; }
+
+  /* ---------- SKILLS ---------- */
+  .chips{ display:flex; flex-wrap:wrap; gap:10px; margin-top:20px; }
+  .chip{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    padding:9px 14px;
+    border-radius:8px;
+    border:1px solid var(--line);
+    color:var(--paper-dim);
+  }
+
+  /* ---------- MUSIC CATALOG ---------- */
+  .catalog-link{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:14px;
+    color:var(--accent);
+    text-decoration:none;
+    border-bottom:1px solid var(--accent);
+    padding-bottom:2px;
+    margin-bottom:32px;
+  }
+  .featured-track{
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:28px 30px;
+    background:var(--ink-2);
+    margin-bottom:28px;
+  }
+  .featured-track .fk{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--accent);
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .featured-track h3{ font-size:24px; margin-bottom:10px; }
+  .featured-track p{ color:var(--paper-dim); font-size:15px; max-width:600px; }
+  .track-list{ display:flex; flex-direction:column; }
+  .track-item{
+    display:flex;
+    justify-content:space-between;
+    gap:16px;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    font-size:15px;
+  }
+  .track-item:last-child{ border-bottom:none; }
+  .track-item a{ text-decoration:none; }
+  .track-item a:hover{ color:var(--accent); }
+  .track-item .t-note{ color:var(--paper-dim); font-size:13px; flex-shrink:0; }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:80px 0 60px;
+    text-align:center;
+  }
+  footer h2{ font-size:32px; margin-bottom:16px; }
+  footer p{ color:var(--paper-dim); margin-bottom:36px; }
+  .cta-row{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .cta{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:13px;
+    padding:14px 26px;
+    border-radius:8px;
+    border:1px solid var(--line);
+    color:var(--paper);
+    text-decoration:none;
+  }
+  .cta.primary{ background:var(--accent); border-color:var(--accent); color:var(--ink); font-weight:500; }
+  .contact-line{ margin-top:40px; font-size:13px; color:var(--paper-dim); font-family:'IBM Plex Mono', monospace; }
+
+  @media (max-width:720px){
+    .axis-grid{ grid-template-columns:repeat(2, 1fr); }
+    section{ padding:64px 0; }
+    .track-label{ font-size:10px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-bars" id="bars"></div>
+  <div class="wrap hero-inner">
+    <div class="kicker">Portfolio — Spotify Senior Music Editor, Taiwan</div>
+    <h1>16 years tuning<br>machines. 12 years<br>tuning <em>feelings</em>.</h1>
+    <p class="hero-role">
+      <b>Yu Wei Lai</b> — Acoustic engineer by trade, award-winning Hoklo &amp;
+      Mandarin singer-songwriter by calling. Taipei, Taiwan.
+    </p>
+    <span class="scroll-cue">scroll</span>
+  </div>
+</section>
+
+<section class="profile">
+  <div class="wrap">
+    <div class="eyebrow">Profile</div>
+    <ul>
+      <li>16 years as a Senior Acoustic Engineer at Compal Electronics, translating frequency-response data into decisions about how sound should <em>feel</em> to a listener.</li>
+      <li>12+ years releasing original music on StreetVoice under the artist name Lucky Air, earning major awards across Mandarin and Hoklo original-music competitions.</li>
+      <li>Led a team of fifteen engineers, working cross-functionally with global R&amp;D, design, and marketing teams.</li>
+      <li>Bilingual in Mandarin and English, comfortable presenting data-driven ideas to senior stakeholders.</li>
+    </ul>
+
+    <div class="tracks">
+      <div class="track-row">
+        <div class="track-label">
+          <span class="tag-eng">// Engineering</span>
+          <span>2010 — Present</span>
+        </div>
+        <div class="track-line eng">
+          <div class="dot eng" style="left:6%"><span class="dot-label">Joined Compal</span></div>
+          <div class="dot eng" style="left:45%"><span class="dot-label">Team lead, 15 reports</span></div>
+          <div class="dot eng" style="left:85%"><span class="dot-label">Cross-region R&amp;D</span></div>
+        </div>
+      </div>
+      <div class="track-row">
+        <div class="track-label">
+          <span class="tag-mus">// Music</span>
+          <span>2013 — Present</span>
+        </div>
+        <div class="track-line mus">
+          <div class="dot mus" style="left:2%"><span class="dot-label wrap">2013 · Original Pop Music Award</span></div>
+          <div class="dot mus" style="left:26%"><span class="dot-label wrap">2015 · Eslite 116 Champion</span></div>
+          <div class="dot mus" style="left:92%"><span class="dot-label wrap">2025 · "Sunset" (日頭落山) Release</span></div>
+        </div>
+      </div>
+      <div class="converge">
+        <span class="converge-node mono">→ Spotify Senior Music Editor, Taiwan</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="framework" id="framework">
+  <div class="wrap">
+    <div class="eyebrow">Editorial Framework</div>
+    <h2 class="serif" style="font-size:34px; margin-bottom:18px;">The four-axis curation system</h2>
+    <p style="color:var(--paper-dim); max-width:640px; margin-bottom:12px;">
+      Instead of curating by genre or generic mood tags, I build playlists at the
+      intersection of four axes — a system that scales to any landscape, any
+      season, any hour, any place.
+    </p>
+
+    <div class="axis-grid">
+      <div class="axis-card">
+        <div class="axis-num">01</div>
+        <div class="axis-title">Landscape</div>
+        <div class="axis-ex">City · Ocean · Mountain · Lake · Night market</div>
+      </div>
+      <div class="axis-card">
+        <div class="axis-num">02</div>
+        <div class="axis-title">Solar term</div>
+        <div class="axis-ex">The 24 traditional solar terms — still alive in Taiwan's food &amp; weather</div>
+      </div>
+      <div class="axis-card">
+        <div class="axis-num">03</div>
+        <div class="axis-title">Time of day</div>
+        <div class="axis-ex">Morning · Midday · Dusk · Night</div>
+      </div>
+      <div class="axis-card">
+        <div class="axis-num">04</div>
+        <div class="axis-title">Specific place</div>
+        <div class="axis-ex">Yangmingshan · Taroko · Kenting · Sun Moon Lake</div>
+      </div>
+    </div>
+
+    <div class="tabs" id="tabs"></div>
+    <div id="cards"></div>
+  </div>
+</section>
+
+<section class="catalog">
+  <div class="wrap">
+    <div class="eyebrow">Real Music Catalog</div>
+    <h2 class="serif" style="font-size:34px; margin-bottom:18px;">Released as Lucky Air</h2>
+    <p style="color:var(--paper-dim); max-width:640px; margin-bottom:20px;">
+      Pop / R&amp;B / Folk / Jazz artist on StreetVoice since 2014. This is the
+      practitioner side of the portfolio — actual released, publicly streamable
+      work, as opposed to the curatorial concept demos above.
+    </p>
+    <a class="catalog-link" href="https://streetvoice.com/luckyair43/" target="_blank" rel="noopener">streetvoice.com/luckyair43 ↗</a>
+
+    <div class="featured-track">
+      <div class="fk">Featured work</div>
+      <h3 class="serif">Sunset (日頭落山)</h3>
+      <p>A Hoklo-language concept piece about home, memory, and the people we return to — framed around the daily rise and fall of the sun as a metaphor for life's own rises and falls.</p>
+    </div>
+
+    <div class="track-list">
+      <div class="track-item"><a href="https://streetvoice.com/luckyair43/songs/351798/" target="_blank" rel="noopener">Meet Me at Exit 6 (相約在六號出口)</a><span class="t-note">Most-streamed · 2015 Eslite 116 champion song</span></div>
+      <div class="track-item"><a href="https://streetvoice.com/luckyair43/songs/773794/" target="_blank" rel="noopener">Plum Rain (梅雨)</a><span class="t-note">Mandarin</span></div>
+      <div class="track-item"><a href="https://streetvoice.com/luckyair43/songs/371407/" target="_blank" rel="noopener">Before Nightfall, Taipei (台北未暗瞑)</a><span class="t-note">Hoklo</span></div>
+      <div class="track-item"><a href="https://streetvoice.com/luckyair43/songs/294483/" target="_blank" rel="noopener">Sunlight (太陽光)</a><span class="t-note">Hoklo</span></div>
+    </div>
+
+    <div class="featured-track" style="margin-top:36px;">
+      <div class="fk">Also worth a listen · personal project, not a job</div>
+      <h3 class="serif">Heal Lab</h3>
+      <p>A piano healing-music channel built on the idea that specific frequency bands correspond to different emotional states. I choose or compose pieces designed to create a specific mood for the listener — the same instinct behind mood-based playlist curation, just applied one instrument at a time.</p>
+      <a class="catalog-link" href="https://www.youtube.com/@heallabpiano" target="_blank" rel="noopener" style="margin-top:14px; margin-bottom:0;">youtube.com/@heallabpiano ↗</a>
+    </div>
+  </div>
+</section>
+
+<section class="awards">
+  <div class="wrap">
+    <div class="eyebrow">Awards &amp; Recognition</div>
+    <h2 class="serif" style="font-size:30px; margin-bottom:24px;">Original music</h2>
+    <div class="award"><span class="yr">2019</span><span class="name">Taiwan Original Pop Music Awards, Hoklo Category — <b>Finalist</b>, "Setting Sail" (出航)</span></div>
+    <div class="award"><span class="yr">2015–17</span><span class="name">Jiu Ai Xin Huan Songwriting Competition — <b>Jinshi Award</b></span></div>
+    <div class="award"><span class="yr">2015</span><span class="name">Jiaoxi Township Songwriting Competition — <b>Champion</b></span></div>
+    <div class="award"><span class="yr">2015</span><span class="name">Eslite 116 "Shi Guang" Creative Competition — <b>Champion</b>, "Meet Me at Exit 6" (相約在六號出口)</span></div>
+    <div class="award"><span class="yr">2014</span><span class="name">"South Song" — Named for the Sea (南面而歌 以海為名) — <b>Selected Work</b></span></div>
+    <div class="award"><span class="yr">2014</span><span class="name">Tung Blossom Lyrics &amp; Composition Competition — <b>Merit Award</b></span></div>
+    <div class="award"><span class="yr">2013</span><span class="name">Taiwan Original Pop Music Awards, Hoklo Category — <b>Honorable Mention</b>, "Yilan Rain" (宜蘭的雨)</span></div>
+  </div>
+</section>
+
+<section class="skills">
+  <div class="wrap">
+    <div class="eyebrow">Additional Skills</div>
+    <h2 class="serif" style="font-size:30px;">Languages &amp; tools</h2>
+    <div class="chips">
+      <span class="chip">Mandarin — Native</span>
+      <span class="chip">English — Professional</span>
+      <span class="chip">Google Workspace</span>
+      <span class="chip">Logic Pro X</span>
+      <span class="chip">Adobe Audition</span>
+      <span class="chip">Canva</span>
+      <span class="chip">Pro/E</span>
+      <span class="chip">Piano</span>
+      <span class="chip">Basic design / cover art</span>
+      <span class="chip">Songwriting &amp; composition</span>
+      <span class="chip">Acoustic / audio analysis</span>
+      <span class="chip">Team leadership, 15 reports</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h2 class="serif">Let's talk about Taiwan's next playlist.</h2>
+    <p>Résumé, cover letter, and full playlist portfolio available on request.</p>
+    <div class="cta-row">
+      <a class="cta primary" href="mailto:airway4378@me.com">Email me</a>
+      <a class="cta" href="https://streetvoice.com/luckyair43/" target="_blank" rel="noopener">StreetVoice Portfolio</a>
+    </div>
+    <div class="contact-line">Yu Wei Lai · Taipei, Taiwan · airway4378@me.com · +886 928-450-258</div>
+  </div>
+</footer>
+
+<script>
+  // hero waveform bars
+  const bars = document.getElementById('bars');
+  const barCount = 60;
+  for(let i=0;i<barCount;i++){
+    const s = document.createElement('span');
+    s.style.animationDelay = (Math.random()*3).toFixed(2)+'s';
+    s.style.animationDuration = (2.4+Math.random()*1.6).toFixed(2)+'s';
+    bars.appendChild(s);
+  }
+
+  // recipe data
+  const recipes = [
+    {
+      key:'yangming',
+      tab:'Yangmingshan · Cold Dew',
+      tags:['Mountain','Cold Dew','Morning','Yangmingshan'],
+      title:'Cold Dew: Sulfur Vents and Silvergrass at Yangmingshan',
+      en:'Sulfur in the air, silvergrass catching the morning light — Hoklo and Hakka mountain songs, side by side.',
+      rationale:'Sulfur vents and silvergrass are Yangmingshan\'s own signature, not generic mountain scenery — Hoklo and Hakka mountain songs sit side by side because that\'s how the area actually sounds.'
+    },
+    {
+      key:'sunmoon',
+      tab:'Sun Moon Lake · White Dew',
+      tags:['Lake','White Dew','Dusk','Sun Moon Lake'],
+      title:'White Dew Dusk: Sun Moon Lake Hakka & Thao Songs',
+      en:'Hakka mountain songs and melodies from the Thao — the Indigenous community native to Sun Moon Lake — together at dusk, as the first autumn mist settles over the water.',
+      rationale:'Sun Moon Lake is Thao land before it\'s anything else — leaving their music out would be the bigger omission. As with Taroko, doing this properly means working with Thao musicians directly, not curating from outside.'
+    },
+    {
+      key:'kenting',
+      tab:'Kenting · Summer Solstice',
+      tags:['Ocean','Summer Solstice','Night','Kenting'],
+      title:'Summer Solstice Midnight: Kenting After Dark',
+      en:'The quiet hour after the beach bars close, on the year\'s shortest night.',
+      rationale:'Everyone curates Kenting loud and daytime; this one curates the quiet hour after — the more editorial choice.'
+    },
+    {
+      key:'taroko',
+      tab:'Taroko · Start of Summer',
+      tags:['Canyon','Start of Summer','Midday','Taroko'],
+      title:'Early Summer Noon: Light and Sound of Taroko',
+      en:'Midday light on marble canyon walls — music built to match the scale, not fill the silence.',
+      rationale:'Indigenous-language music deserves partnership with Indigenous artists, not just outside curation — that boundary is part of the pitch, not a footnote.'
+    },
+    {
+      key:'market',
+      tab:'Night Market · Great Cold',
+      tags:['Night market','Great Cold','Night','Any city'],
+      title:'Great Cold Night Market: Roasted Corn & Hoklo Classics',
+      en:'The coldest night of the year, and the night market\'s still the warmest place in town.',
+      rationale:'A solar term nobody tracks, tied to a ritual everyone knows — old and new Hoklo songs paired with Mandarin oldies so it works across generations in one list.'
+    }
+  ];
+
+  const tabsEl = document.getElementById('tabs');
+  const cardsEl = document.getElementById('cards');
+
+  recipes.forEach((r, idx) => {
+    const tab = document.createElement('button');
+    tab.className = 'tab' + (idx===0 ? ' active':'');
+    tab.textContent = r.tab;
+    tab.dataset.key = r.key;
+    tab.addEventListener('click', () => selectRecipe(r.key));
+    tabsEl.appendChild(tab);
+
+    const card = document.createElement('div');
+    card.className = 'recipe-card' + (idx===0 ? ' active':'');
+    card.id = 'card-'+r.key;
+    card.innerHTML = `
+      <div class="recipe-tags">${r.tags.map(t=>`<span>${t}</span>`).join('')}</div>
+      <h3 class="serif">${r.title}</h3>
+      <blockquote>${r.en}</blockquote>
+      <div class="rationale"><b>Curatorial rationale —</b> ${r.rationale}</div>
+    `;
+    cardsEl.appendChild(card);
+  });
+
+  function selectRecipe(key){
+    document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.key===key));
+    document.querySelectorAll('.recipe-card').forEach(c => c.classList.toggle('active', c.id==='card-'+key));
+  }
+</script>
+
+</body>
+</html>
